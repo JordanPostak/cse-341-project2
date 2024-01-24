@@ -1,14 +1,14 @@
 {
   "name": "cse-341-project1",
   "version": "1.0.0",
-  "description": "My First Project",
+  "description": "My Second Project",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JordanPostak/cse-341-project1.git"
+    "url": "git+https://github.com/JordanPostak/cse-341-project2.git"
   },
   "author": "Jordan Postak",
   "license": "ISC",
