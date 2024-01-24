@@ -4,7 +4,8 @@
   "description": "My Second Project",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "swagger": "node swagger.js"
   },
   "repository": {
     "type": "git",
@@ -13,9 +14,9 @@
   "author": "Jordan Postak",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JordanPostak/cse-341-project1/issues"
+    "url": "https://github.com/JordanPostak/cse-341-project2/issues"
   },
-  "homepage": "https://github.com/JordanPostak/cse-341-project1#readme",
+  "homepage": "https://github.com/JordanPostak/cse-341-project2#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",

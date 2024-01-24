@@ -22,6 +22,7 @@ const getSingle = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
+    //#swagger.tags=['Users']
     const user = {
         username: req.body.username,
         password: req.body.password,
@@ -36,6 +37,7 @@ const createUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
+    //#swagger.tags=['Users']
     const userId = new ObjectId(req.params.id);
     const user = {
         username: req.body.username,
@@ -51,6 +53,7 @@ const updateUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
+    //#swagger.tags=['Users']
     const userId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db('project2').collection('users').deleteOne({ _id: userId });
     if (response.deletedCount > 0) {
