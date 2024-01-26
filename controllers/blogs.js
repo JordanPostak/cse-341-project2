@@ -25,42 +25,74 @@ const getSingleBlog = async (req, res) => {
 
 const createBlog = async (req, res) => {
     //#swagger.tags=['blogs']
+    const { title, author, category, content, published_date, tags, format } = req.body;
+
+    // Data validation
+    if (!title || !author || !content || !published_date || !tags || !format) {
+        return res.status(400).json({ error: "Title, author, content, published date, tags, and format are required." });
+    }
+
+    // Create the updated blog object
     const blog = {
-        title: req.body.title,
-        author: req.body.author,
-        category: req.body.category,
-        content: req.body.content,
-        published_date: req.body.published_date,
-        tags: req.body.tags,
-        format: req.body.format
+        title,
+        author,
+        category,
+        content,
+        published_date,
+        tags,
+        format
     };
 
-    const response = await mongodb.getDatabase().db('project2').collection('blogs').insertOne(blog);
-    if (response.acknowledged) {
-        res.status(204).send();
-    } else {
-        res.status(500).json(response.error || 'Some error occurred while creating the blog.');
+    try {
+        // Update the blog in the database
+        const response = await mongodb.getDatabase().db('project2').collection('blogs').insertOne(blog);
+        
+        // Check if the blog was successfully updated
+        if (response.acknowledged) {
+            return res.status(204).send();// Success
+        } else {
+            return res.status(500).json('Some error occurred while creating the blog.');// Internal server error
+        }
+    } catch (error) {
+        return res.status(500).json(error.message || 'Some error occurred while creating the blog.');// Internal server error
     }
 };
 
 const updateBlog = async (req, res) => {
     //#swagger.tags=['blogs']
     const blogId = new ObjectId(req.params.id);
-    const blog = {
-        title: req.body.title,
-        author: req.body.author,
-        category: req.body.category,
-        content: req.body.content,
-        published_date: req.body.published_date,
-        tags: req.body.tags,
-        format: req.body.format
+
+    // Destructure the request body
+    const { title, author, category, content, published_date, tags, format } = req.body;
+
+    // Data validation
+    if (!title || !author || !content || !published_date || !tags || !format) {
+        return res.status(400).json({ error: "Title, author, content, published date, tags, and format are required." });
+    }
+
+    // Create the updated blog object
+    const updatedBlog = {
+        title,
+        author,
+        category,
+        content,
+        published_date,
+        tags,
+        format
     };
 
-    const response = await mongodb.getDatabase().db('project2').collection('blogs').replaceOne({ _id: blogId }, blog);
-    if (response.modifiedCount > 0) {
-        res.status(204).send();
-    } else {
-        res.status(500).json(response.error || 'Some error occurred while updating the blog.');
+    try {
+        // Update the blog in the database
+        const response = await mongodb.getDatabase().db('project2').collection('blogs').replaceOne({ _id: blogId }, updatedBlog);
+
+        // Check if the blog was successfully updated
+        if (response.modifiedCount > 0) {
+            return res.status(204).send(); // Success
+        } else {
+            return res.status(404).json({ error: "Blog not found." }); // Blog with given ID not found
+        }
+    } catch (error) {
+        return res.status(500).json(error.message || 'Some error occurred while updating the blog.'); // Internal server error
     }
 };
 

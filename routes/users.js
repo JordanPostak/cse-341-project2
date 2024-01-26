@@ -14,7 +14,7 @@ router.get('/', usersController.getAllUsers);
 router.get('/:id', usersController.getSingleUser);
 
 // POST a new user
-router.post('/', isAuthenticated, usersController.createUser);
+router.post('/', usersController.createUser);
 
 // PUT (update) a user by ID
 router.put('/:id', isAuthenticated, usersController.updateUser);
