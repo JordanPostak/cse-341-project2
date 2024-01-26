@@ -7,12 +7,30 @@
   },
   "host": "localhost:3000",
   "basePath": "/",
-  "schemes": ["http", "https"],
+  "tags": [
+    {
+      "name": "blogs",
+      "description": "Operations related to blogs"
+    },
+    {
+      "name": "Users",
+      "description": "Operations related to users"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
   "paths": {
-    "/users/": {
+    "/blogs/": {
       "get": {
+        "tags": [
+          "blogs"
+        ],
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -20,6 +38,9 @@
         }
       },
       "post": {
+        "tags": [
+          "blogs"
+        ],
         "description": "",
         "parameters": [
           {
@@ -28,10 +49,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "username": {
+                "title": {
                   "example": "any"
                 },
-                "password": {
+                "author": {
+                  "example": "any"
+                },
+                "category": {
+                  "example": "any"
+                },
+                "content": {
+                  "example": "any"
+                },
+                "published_date": {
+                  "example": "any"
+                },
+                "tags": {
+                  "example": "any"
+                },
+                "format": {
                   "example": "any"
                 }
               }
@@ -42,16 +78,24 @@
           "204": {
             "description": "No Content"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       }
     },
-    "/users/{id}": {
+    "/blogs/{id}": {
       "get": {
+        "tags": [
+          "blogs"
+        ],
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -67,6 +111,127 @@
         }
       },
       "put": {
+        "tags": [
+          "blogs"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "author": {
+                  "example": "any"
+                },
+                "category": {
+                  "example": "any"
+                },
+                "content": {
+                  "example": "any"
+                },
+                "published_date": {
+                  "example": "any"
+                },
+                "tags": {
+                  "example": "any"
+                },
+                "format": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "blogs"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -95,12 +260,18 @@
           "204": {
             "description": "No Content"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -113,6 +284,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"

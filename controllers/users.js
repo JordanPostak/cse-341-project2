@@ -4,7 +4,7 @@
 const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
-const getAll = async (req, res) => {
+const getAllUsers = async (req, res) => {
     const result = await mongodb.getDatabase().db('project2').collection('users').find();
     result.toArray().then((users) => {
         res.setHeader('Content-Type', 'application/json');
@@ -12,7 +12,7 @@ const getAll = async (req, res) => {
     });
 };
 
-const getSingle = async (req, res) => {
+const getSingleUser = async (req, res) => {
     const userId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().db('project2').collection('users').find({ _id: userId });
     result.toArray().then((users) => {
@@ -64,8 +64,8 @@ const deleteUser = async (req, res) => {
 };
 
 module.exports = {
-    getAll,
-    getSingle,
+    getAllUsers,
+    getSingleUser,
     createUser,
     updateUser,
     deleteUser
