@@ -8,9 +8,12 @@ router.use('/', require('./swagger'));
 router.use('/authors', require('./authors'));
 router.use('/blogs', require('./blogs'));
 
-router.get('/login', passport.authenticate('github'), (req, res) => {});
+router.get('/login', passport.authenticate('github'), (req, res) => {
+    console.log(req.session);
+});
 
 router.get('/logout', function(req, res, next) {
+    console.log(req.session);
     req.logout(function(err) {
         if (err) { return next(err); }
         res.redirect('/');
