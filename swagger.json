@@ -13,8 +13,8 @@
       "description": "Operations related to blogs"
     },
     {
-      "name": "Users",
-      "description": "Operations related to users"
+      "name": "Authors",
+      "description": "Operations related to authors"
     }
   ],
   "schemes": [
@@ -24,13 +24,9 @@
   "paths": {
     "/blogs/": {
       "get": {
-        "tags": [
-          "blogs"
-        ],
+        "tags": ["blogs"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -38,9 +34,7 @@
         }
       },
       "post": {
-        "tags": [
-          "blogs"
-        ],
+        "tags": ["blogs"],
         "description": "",
         "parameters": [
           {
@@ -49,53 +43,29 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
-                  "example": "any"
-                },
-                "author": {
-                  "example": "any"
-                },
-                "category": {
-                  "example": "any"
-                },
-                "content": {
-                  "example": "any"
-                },
-                "published_date": {
-                  "example": "any"
-                },
-                "tags": {
-                  "example": "any"
-                },
-                "format": {
-                  "example": "any"
-                }
+                "title": {"example": "any"},
+                "author": {"example": "any"},
+                "category": {"example": "any"},
+                "content": {"example": "any"},
+                "published_date": {"example": "any"},
+                "tags": {"example": "any"},
+                "format": {"example": "any"}
               }
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": {"description": "No Content"},
+          "401": {"description": "Unauthorized"},
+          "500": {"description": "Internal Server Error"}
         }
       }
     },
     "/blogs/{id}": {
       "get": {
-        "tags": [
-          "blogs"
-        ],
+        "tags": ["blogs"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -105,15 +75,11 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          }
+          "200": {"description": "OK"}
         }
       },
       "put": {
-        "tags": [
-          "blogs"
-        ],
+        "tags": ["blogs"],
         "description": "",
         "parameters": [
           {
@@ -128,47 +94,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
-                  "example": "any"
-                },
-                "author": {
-                  "example": "any"
-                },
-                "category": {
-                  "example": "any"
-                },
-                "content": {
-                  "example": "any"
-                },
-                "published_date": {
-                  "example": "any"
-                },
-                "tags": {
-                  "example": "any"
-                },
-                "format": {
-                  "example": "any"
-                }
+                "title": {"example": "any"},
+                "author": {"example": "any"},
+                "category": {"example": "any"},
+                "content": {"example": "any"},
+                "published_date": {"example": "any"},
+                "tags": {"example": "any"},
+                "format": {"example": "any"}
               }
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": {"description": "No Content"},
+          "401": {"description": "Unauthorized"},
+          "500": {"description": "Internal Server Error"}
         }
       },
       "delete": {
-        "tags": [
-          "blogs"
-        ],
+        "tags": ["blogs"],
         "description": "",
         "parameters": [
           {
@@ -179,24 +123,23 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": {"description": "No Content"},
+          "401": {"description": "Unauthorized"},
+          "500": {"description": "Internal Server Error"}
         }
       }
     },
-    "/users/": {
+    "/authors/": {
+      "get": {
+        "tags": ["Authors"],
+        "description": "Get all authors",
+        "responses": {
+          "200": {"description": "OK"}
+        }
+      },
       "post": {
-        "tags": [
-          "Users"
-        ],
-        "description": "",
+        "tags": ["Authors"],
+        "description": "Create a new author",
         "parameters": [
           {
             "name": "body",
@@ -204,35 +147,38 @@
             "schema": {
               "type": "object",
               "properties": {
-                "username": {
-                  "example": "any"
-                },
-                "password": {
-                  "example": "any"
-                }
+                "authorname": {"type": "string", "example": "any"},
+                "email": {"type": "string", "example": "any"}
               }
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": {"description": "No Content"},
+          "401": {"description": "Unauthorized"},
+          "500": {"description": "Internal Server Error"}
         }
       }
     },
-    "/users/{id}": {
-      "put": {
-        "tags": [
-          "Users"
+    "/authors/{id}": {
+      "get": {
+        "tags": ["Authors"],
+        "description": "Get a single author by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
         ],
-        "description": "",
+        "responses": {
+          "200": {"description": "OK"}
+        }
+      },
+      "put": {
+        "tags": ["Authors"],
+        "description": "Update an author",
         "parameters": [
           {
             "name": "id",
@@ -246,32 +192,23 @@
             "schema": {
               "type": "object",
               "properties": {
-                "username": {
-                  "example": "any"
-                },
-                "password": {
-                  "example": "any"
-                }
+                "githubId": {"type": "string", "example": "any"},
+                "authorname": {"type": "string", "example": "any"},
+                "email": {"type": "string", "example": "any"},
+                "profilePicture": {"type": "string", "example": "any"},
+                "aboutMe": {"type": "string", "example": "any"}
               }
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": {"description": "No Content"},
+          "401": {"description": "Unauthorized"},
+          "500": {"description": "Internal Server Error"}
         }
       },
       "delete": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Authors"],
         "description": "",
         "parameters": [
           {
@@ -282,15 +219,9 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": {"description": "No Content"},
+          "401": {"description": "Unauthorized"},
+          "500": {"description": "Internal Server Error"}
         }
       }
     }

@@ -59,9 +59,17 @@ passport.deserializeUser((user, done) => {
     done(null, user);
 });
 
-app.get('/', (req, res) => { 
-    // console.log('Session User:', req.session.user);
-    res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")
+app.get('/', (req, res) => {
+    if (req.session.user !== undefined) {
+        const displayName = req.session.user.displayName;
+        const profilePicture = req.session.user.photos[0].value;
+        res.send(`
+            <h1>Logged in as ${displayName}</h1>
+            <img src="${profilePicture}" alt="Profile Picture">
+        `);
+    } else {
+        res.send("Logged Out");
+    }
 });
 
 app.get('/github/callback', passport.authenticate('github', {

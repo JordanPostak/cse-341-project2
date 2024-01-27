@@ -3,32 +3,32 @@
 #### Main Localhost
 GET http://localhost:3000
 
-#### GET All Users Localhost
-GET http://localhost:3000/users
+#### GET All Authors Localhost
+GET http://localhost:3000/authors
 
-#### GET Single User Localhost
-GET http://localhost:3000/users/1234567890
+#### GET Single Author Localhost
+GET http://localhost:3000/authors/1234567890
 
-#### Create User Localhost
-POST http://localhost:3000/users
+#### Create Author Localhost
+POST http://localhost:3000/authors
 content-type: application/json
 
 {
-    "username": "JohnDoe",
-    "password": "securepassword123"
+    "authorname": "JaneDoe",
+    "email": "email"
 }
 
-#### Update User Localhost
-PUT http://localhost:3000/users/9876543210
+#### Update author Localhost
+PUT http://localhost:3000/authors/9876543210
 content-type: application/json
 
 {
-    "username": "JaneDoe",
-    "password": "newsecurepassword456"
+    "authorname": "JaneDoe",
+    "email": "email"
 }
 
-#### Delete User Localhost
-DELETE http://localhost:3000/users/5678901234
+#### Delete author Localhost
+DELETE http://localhost:3000/authors/5678901234
 
 
 ### Render Requests
@@ -36,29 +36,29 @@ DELETE http://localhost:3000/users/5678901234
 #### Main Render
 GET https://project2-tltm.onrender.com
 
-#### GET All Users Render
-GET https://project2-tltm.onrender.com/users
+#### GET All authors Render
+GET https://project2-tltm.onrender.com/authors
 
-#### GET Single User Render
-GET https://project2-tltm.onrender.com/users/1234567890
+#### GET Single author Render
+GET https://project2-tltm.onrender.com/authors/1234567890
 
-#### Create User Render
-POST https://project2-tltm.onrender.com/users
+#### Create author Render
+POST https://project2-tltm.onrender.com/authors
 content-type: application/json
 
 {
-    "username": "JohnDoe",
-    "password": "securepassword123"
+    "authorname": "JaneDoe",
+    "email": "email"
 }
 
-#### Update User Render
-PUT https://project2-tltm.onrender.com/users/9876543210
+#### Update author Render
+PUT https://project2-tltm.onrender.com/authors/9876543210
 content-type: application/json
 
 {
-    "username": "JaneDoe",
-    "password": "newsecurepassword456"
+    "authorname": "JaneDoe",
+    "email": "email"
 }
 
-#### Delete User Render
-DELETE https://project2-tltm.onrender.com/users/5678901234
+#### Delete author Render
+DELETE https://project2-tltm.onrender.com/authors/5678901234

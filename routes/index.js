@@ -2,9 +2,10 @@
 
 const router = require('express').Router();
 const passport = require('passport');
+const mongodb = require('../data/database');
 
 router.use('/', require('./swagger'));
-router.use('/users', require('./users'));
+router.use('/authors', require('./authors'));
 router.use('/blogs', require('./blogs'));
 
 router.get('/login', passport.authenticate('github'), (req, res) => {});

@@ -11,18 +11,22 @@ const doc = {
     schemes: ['http', 'https'],
     tags: [ // Define tags used in controllers
         {
+            name: 'login/logout',
+            description: 'Operations related to login/logout'
+        },
+        {
             name: 'blogs',
             description: 'Operations related to blogs'
         },
         {
-            name: 'Users',
-            description: 'Operations related to users'
+            name: 'Authors',
+            description: 'Operations related to authors'
         }
     ]
 };
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/index.js', './routes/users.js', './routes/blogs.js']; 
+const endpointsFiles = ['./routes/index.js', './routes/authors.js', './routes/blogs.js']; 
 
 // This will generate swagger.json
 swaggerAutogen(outputFile, endpointsFiles, doc);
