@@ -37,7 +37,7 @@ app
         next();
     })
     .use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
-    .use(cors({ origin: 'https://project2-tltm.onrender.com'}))
+    .use(cors({ origin: ['http://localhost:3000', 'http://project2-tltm.onrender.com', 'https://project2-tltm.onrender.com'], credentials: true }))
     .use("/", require("./routes/index.js"));
 
     passport.use(new GitHubStrategy({
