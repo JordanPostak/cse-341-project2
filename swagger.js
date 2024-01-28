@@ -7,7 +7,7 @@ const doc = {
         title: 'Project 2 API',
         description: 'API documentation for Project 2',
     },
-    host: 'https://project2-tltm.onrender.com',
+    host: 'project2-tltm.onrender.com',
     schemes: ['http', 'https'],
     tags: [ // Define tags used in controllers
         {
