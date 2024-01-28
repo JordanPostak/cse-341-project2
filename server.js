@@ -37,7 +37,7 @@ app
         next();
     })
     .use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
-    .use(cors({ origin: '*'}))
+    .use(cors({ origin: 'https://project2-tltm.onrender.com'}))
     .use("/", require("./routes/index.js"));
 
     passport.use(new GitHubStrategy({
@@ -73,7 +73,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/github/callback', passport.authenticate('github', {
-    falureRedirect: '/api-docs', session: false}),
+    failureRedirect: '/api-docs', session: false}),
     (req, res) => {
         req.session.user = req.user;
         res.redirect('/');
