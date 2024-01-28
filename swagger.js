@@ -5,11 +5,7 @@ const swaggerAutogen = require('swagger-autogen')();
 const doc = {
     info: {
         title: 'Project 2 API',
-        description: `
-        API documentation for Project 2. 
-        Logged in as [displayName]. 
-        ![Profile Picture](profilePicture)
-        `,
+        description: 'API documentation for Project 2',
     },
     host: 'https://project2-tltm.onrender.com',
     schemes: ['http', 'https'],
