@@ -21,12 +21,16 @@ const doc = {
         {
             name: 'Authors',
             description: 'Operations related to authors'
+        },
+        {
+            name: 'Comments',
+            description: 'Operations related to comments'
         }
     ]
 };
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/index.js', './routes/authors.js', './routes/blogs.js']; 
+const endpointsFiles = ['./routes/index.js', './routes/authors.js', './routes/blogs.js', './routes/comments.js']; 
 
 // This will generate swagger.json
 swaggerAutogen(outputFile, endpointsFiles, doc);

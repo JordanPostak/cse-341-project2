@@ -15,6 +15,10 @@
     {
       "name": "Authors",
       "description": "Operations related to authors"
+    },
+    {
+      "name": "Comments",
+      "description": "Operations related to comments"
     }
   ],
   "schemes": [
@@ -24,7 +28,7 @@
     "/blogs/": {
       "get": {
         "tags": ["blogs"],
-        "description": "",
+        "description": "Get all blogs",
         "produces": ["application/json"],
         "responses": {
           "200": {
@@ -34,7 +38,7 @@
       },
       "post": {
         "tags": ["blogs"],
-        "description": "",
+        "description": "Create a new blog",
         "parameters": [
           {
             "name": "body",
@@ -63,7 +67,7 @@
     "/blogs/{id}": {
       "get": {
         "tags": ["blogs"],
-        "description": "",
+        "description": "Get a single blog by ID",
         "produces": ["application/json"],
         "parameters": [
           {
@@ -79,7 +83,7 @@
       },
       "put": {
         "tags": ["blogs"],
-        "description": "",
+        "description": "Update a blog",
         "parameters": [
           {
             "name": "id",
@@ -112,7 +116,7 @@
       },
       "delete": {
         "tags": ["blogs"],
-        "description": "",
+        "description": "Delete a blog by ID",
         "parameters": [
           {
             "name": "id",
@@ -208,7 +212,104 @@
       },
       "delete": {
         "tags": ["Authors"],
-        "description": "",
+        "description": "Delete an author by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {"description": "No Content"},
+          "401": {"description": "Unauthorized"},
+          "500": {"description": "Internal Server Error"}
+        }
+      }
+    },
+    "/comments/": {
+      "get": {
+        "tags": ["Comments"],
+        "description": "Get all comments",
+        "responses": {
+          "200": {"description": "OK"}
+        }
+      },
+      "post": {
+        "tags": ["Comments"],
+        "description": "Create a new comment",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "blog_id": {"type": "string", "example": "any"},
+                "commenter_name": {"type": "string", "example": "any"},
+                "comment_content": {"type": "string", "example": "any"},
+                "comment_date": {"type": "string", "example": "any"}
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {"description": "No Content"},
+          "401": {"description": "Unauthorized"},
+          "500": {"description": "Internal Server Error"}
+        }
+      }
+    },
+    "/comments/{id}": {
+      "get": {
+        "tags": ["Comments"],
+        "description": "Get a single comment by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {"description": "OK"}
+        }
+      },
+      "put": {
+        "tags": ["Comments"],
+        "description": "Update a comment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "blog_id": {"type": "string", "example": "any"},
+                "commenter_name": {"type": "string", "example": "any"},
+                "comment_content": {"type": "string", "example": "any"},
+                "comment_date": {"type": "string", "example": "any"}
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {"description": "No Content"},
+          "401": {"description": "Unauthorized"},
+          "500": {"description": "Internal Server Error"}
+        }
+      },
+      "delete": {
+        "tags": ["Comments"],
+        "description": "Delete a comment by ID",
         "parameters": [
           {
             "name": "id",

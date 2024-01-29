@@ -23,3 +23,4 @@ router.put('/:id', isAuthenticated, authorsController.updateAuthor);
 router.delete('/:id', isAuthenticated, authorsController.deleteAuthor);
 
 module.exports = router;
+
