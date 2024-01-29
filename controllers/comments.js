@@ -50,7 +50,7 @@ const createComment = async (req, res) => {
         const comment = {
             blogId: req.body.blogId,
             commenttext: req.body.commenttext,
-            author: req.body.author
+            author: req.body.author,
         };
 
         const response = await mongodb.getDatabase().db('project2').collection('comments').insertOne(comment);
@@ -72,7 +72,7 @@ const updateComment = async (req, res) => {
         const comment = {
             blogId: req.body.blogId,
             commenttext: req.body.commenttext,
-            author: req.body.author
+            author: req.body.author,
         };
 
         const response = await mongodb.getDatabase().db('project2').collection('comments').replaceOne({ _id: commentId }, comment);

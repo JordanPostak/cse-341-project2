@@ -8,6 +8,7 @@ router.use('/', require('./swagger'));
 router.use('/authors', require('./authors'));
 router.use('/blogs', require('./blogs'));
 router.use('/comments', require('./comments'));
+router.use('/reactions', require('./reactions'));
 
 router.get('/login', passport.authenticate('github'), (req, res) => {
     console.log(req.session);

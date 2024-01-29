@@ -322,6 +322,60 @@
           "500": {"description": "Internal Server Error"}
         }
       }
+    },
+    "/reactions/": {
+      "get": {
+        "tags": ["Reactions"],
+        "description": "Get all reactions",
+        "responses": {
+          "200": {"description": "OK"}
+        }
+      },
+      "post": {
+        "tags": ["Reactions"],
+        "description": "Create a new reaction",
+        "parameters": [
+        ],
+        "responses": {
+          "204": {"description": "No Content"},
+          "401": {"description": "Unauthorized"},
+          "500": {"description": "Internal Server Error"}
+        }
+      }
+    },
+    "/reactions/{id}": {
+      "get": {
+        "tags": ["Reactions"],
+        "description": "Get a single reaction by ID",
+        "parameters": [
+        ],
+        "responses": {
+          "200": {"description": "OK"}
+        }
+      },
+      "put": {
+        "tags": ["Reactions"],
+        "description": "Update a reaction",
+        "parameters": [
+        
+        ],
+        "responses": {
+          "204": {"description": "No Content"},
+          "401": {"description": "Unauthorized"},
+          "500": {"description": "Internal Server Error"}
+        }
+      },
+      "delete": {
+        "tags": ["Reactions"],
+        "description": "Delete a reaction by ID",
+        "parameters": [
+        ],
+        "responses": {
+          "204": {"description": "No Content"},
+          "401": {"description": "Unauthorized"},
+          "500": {"description": "Internal Server Error"}
+        }
+      }
     }
   }
 }
