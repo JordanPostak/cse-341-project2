@@ -47,39 +47,60 @@ const getSingleComment = async (req, res) => {
 const createComment = async (req, res) => {
     //#swagger.tags=['comments']
     try {
-        const { commentText, author, blogId } = req.body;
-
-        // Create a comment object
         const comment = {
-            commentText,
-            author,
-            blogId: ObjectId(blogId) // Convert the blogId to ObjectId
-            // Other fields as needed
+            blogId: req.body.blogId,
+            commenttext: req.body.commenttext,
+            author: req.body.author
         };
 
-        // Insert the comment into the database
         const response = await mongodb.getDatabase().db('project2').collection('comments').insertOne(comment);
-
-        // Check if the comment was successfully inserted
         if (response.acknowledged) {
-            return res.status(204).send(); // Success
+            res.status(204).send();
         } else {
-            return res.status(500).json('Some error occurred while creating the comment.'); // Internal server error
+            res.status(500).json(response.error || 'Some error occurred while creating the comment.');
         }
     } catch (error) {
         console.error(error);
-        return res.status(500).json({ error: 'Internal Server Error' }); // Internal server error
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 };
 
 const updateComment = async (req, res) => {
     //#swagger.tags=['comments']
-    // Add your code here
+    try {
+        const commentId = new ObjectId(req.params.id);
+        const comment = {
+            blogId: req.body.blogId,
+            commenttext: req.body.commenttext,
+            author: req.body.author
+        };
+
+        const response = await mongodb.getDatabase().db('project2').collection('comments').replaceOne({ _id: commentId }, comment);
+        if (response.modifiedCount > 0) {
+            res.status(204).send();
+        } else {
+            res.status(500).json(response.error || 'Some error occurred while updating the comment.');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 };
 
 const deleteComment = async (req, res) => {
     //#swagger.tags=['comments']
-    // Add your code here
+    try {
+        const commentId = new ObjectId(req.params.id);
+        const response = await mongodb.getDatabase().db('project2').collection('comments').deleteOne({ _id: commentId });
+        if (response.deletedCount > 0) {
+            res.status(204).send();
+        } else {
+            res.status(500).json(response.error || 'Some error occurred while deleting the comment.');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 };
 
 module.exports = {
