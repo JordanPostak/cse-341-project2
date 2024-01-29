@@ -62,3 +62,96 @@ content-type: application/json
 
 #### Delete author Render
 DELETE https://project2-tltm.onrender.com/authors/5678901234
+
+
+#### Main Localhost
+GET: http://localhost:3000
+
+
+#### GET All Blogs Localhost
+GET: http://localhost:3000/blogs
+
+
+#### GET Single Blog Localhost
+GET: http://localhost:3000/blogs/1234567890
+
+
+#### Create Blog Localhost
+POST: http://localhost:3000/blogs
+Content-Type: application/json
+
+{
+    "title": "Sample Blog Title",
+    "author": "Sample Author",
+    "category": "Sample Category",
+    "content": "Sample Content",
+    "published_date": "2024-01-25",
+    "tags": ["tag1", "tag2"],
+    "format": "html"
+}
+
+
+#### Update Blog Localhost
+PUT: http://localhost:3000/blogs/9876543210
+Content-Type: application/json
+
+{
+    "title": "Updated Blog Title",
+    "author": "Updated Author",
+    "category": "Updated Category",
+    "content": "Updated Content",
+    "published_date": "2024-01-26",
+    "tags": ["tag3", "tag4"],
+    "format": "markdown"
+}
+
+
+#### Delete Blog Localhost
+DELETE: http://localhost:3000/blogs/5678901234
+
+
+#### Render Requests
+
+#### Main Render
+GET: https://project2-tltm.onrender.com
+
+
+#### GET All Blogs Render
+GET: https://project2-tltm.onrender.com/blogs
+
+
+#### GET Single Blog Render
+GET: https://project2-tltm.onrender.com/blogs/1234567890
+
+
+#### Create Blog Render
+POST: https://project2-tltm.onrender.com/blogs
+Content-Type: application/json
+
+{
+    "title": "Sample Blog Title",
+    "author": "Sample Author",
+    "category": "Sample Category",
+    "content": "Sample Content",
+    "published_date": "2024-01-25",
+    "tags": ["tag1", "tag2"],
+    "format": "html"
+}
+
+
+#### Update Blog Render
+PUT: https://project2-tltm.onrender.com/blogs/9876543210
+Content-Type: application/json
+
+{
+    "title": "Updated Blog Title",
+    "author": "Updated Author",
+    "category": "Updated Category",
+    "content": "Updated Content",
+    "published_date": "2024-01-26",
+    "tags": ["tag3", "tag4"],
+    "format": "markdown"
+}
+
+#### Delete Blog Render
+DELETE: https://project2-tltm.onrender.com/blogs/5678901234
