@@ -341,8 +341,8 @@
             "schema": {
               "type": "object",
               "properties": {
-                "blog_id": {"type": "string", "example": "any"},
-                "reactiontext": {"type": "string", "example": "any"},
+                "commentId": {"type": "string", "example": "any"},
+                "reactionType": {"type": "string", "example": "any"},
                 "author": {"type": "string", "example": "any"}
               }
             }
@@ -387,8 +387,8 @@
             "schema": {
               "type": "object",
               "properties": {
-                "blog_id": {"type": "string", "example": "any"},
-                "reactiontext": {"type": "string", "example": "any"},
+                "commentId": {"type": "string", "example": "any"},
+                "reactionType": {"type": "string", "example": "any"},
                 "author": {"type": "string", "example": "any"}
               }
             }
