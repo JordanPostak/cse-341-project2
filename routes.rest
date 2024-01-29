@@ -65,19 +65,19 @@ DELETE https://project2-tltm.onrender.com/authors/5678901234
 
 
 #### Main Localhost
-GET: http://localhost:3000
+GET http://localhost:3000
 
 
 #### GET All Blogs Localhost
-GET: http://localhost:3000/blogs
+GET http://localhost:3000/blogs
 
 
 #### GET Single Blog Localhost
-GET: http://localhost:3000/blogs/1234567890
+GET http://localhost:3000/blogs/1234567890
 
 
 #### Create Blog Localhost
-POST: http://localhost:3000/blogs
+POST http://localhost:3000/blogs
 Content-Type: application/json
 
 {
@@ -92,7 +92,7 @@ Content-Type: application/json
 
 
 #### Update Blog Localhost
-PUT: http://localhost:3000/blogs/9876543210
+PUT http://localhost:3000/blogs/9876543210
 Content-Type: application/json
 
 {
@@ -107,25 +107,25 @@ Content-Type: application/json
 
 
 #### Delete Blog Localhost
-DELETE: http://localhost:3000/blogs/5678901234
+DELETE http://localhost:3000/blogs/5678901234
 
 
 #### Render Requests
 
 #### Main Render
-GET: https://project2-tltm.onrender.com
+GET https://project2-tltm.onrender.com
 
 
 #### GET All Blogs Render
-GET: https://project2-tltm.onrender.com/blogs
+GET https://project2-tltm.onrender.com/blogs
 
 
 #### GET Single Blog Render
-GET: https://project2-tltm.onrender.com/blogs/1234567890
+GET https://project2-tltm.onrender.com/blogs/1234567890
 
 
 #### Create Blog Render
-POST: https://project2-tltm.onrender.com/blogs
+POST https://project2-tltm.onrender.com/blogs
 Content-Type: application/json
 
 {
@@ -140,7 +140,7 @@ Content-Type: application/json
 
 
 #### Update Blog Render
-PUT: https://project2-tltm.onrender.com/blogs/9876543210
+PUT https://project2-tltm.onrender.com/blogs/9876543210
 Content-Type: application/json
 
 {
@@ -154,4 +154,4 @@ Content-Type: application/json
 }
 
 #### Delete Blog Render
-DELETE: https://project2-tltm.onrender.com/blogs/5678901234
+DELETE https://project2-tltm.onrender.com/blogs/5678901234
