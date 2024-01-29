@@ -335,6 +335,18 @@
         "tags": ["Reactions"],
         "description": "Create a new reaction",
         "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "blog_id": {"type": "string", "example": "any"},
+                "reactiontext": {"type": "string", "example": "any"},
+                "author": {"type": "string", "example": "any"}
+              }
+            }
+          }
         ],
         "responses": {
           "204": {"description": "No Content"},
@@ -348,6 +360,12 @@
         "tags": ["Reactions"],
         "description": "Get a single reaction by ID",
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
         ],
         "responses": {
           "200": {"description": "OK"}
@@ -357,7 +375,24 @@
         "tags": ["Reactions"],
         "description": "Update a reaction",
         "parameters": [
-        
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "blog_id": {"type": "string", "example": "any"},
+                "reactiontext": {"type": "string", "example": "any"},
+                "author": {"type": "string", "example": "any"}
+              }
+            }
+          }
         ],
         "responses": {
           "204": {"description": "No Content"},
@@ -369,6 +404,12 @@
         "tags": ["Reactions"],
         "description": "Delete a reaction by ID",
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
         ],
         "responses": {
           "204": {"description": "No Content"},
